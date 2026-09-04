@@ -13,6 +13,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Fix git ownership check
+        run: git config --global --add safe.directory '*'
+
       - name: Compile firmware
         run: make epomaker/galaxy100_lite:via
 
