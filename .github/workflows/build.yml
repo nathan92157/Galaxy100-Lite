@@ -16,6 +16,13 @@ jobs:
       - name: Fix git ownership check
         run: git config --global --add safe.directory '*'
 
+      - name: Debug qmk CLI environment
+        run: |
+          which qmk
+          qmk --version
+          qmk hello
+        continue-on-error: true
+
       - name: Compile firmware
         run: make epomaker/galaxy100_lite:via
 
